@@ -3,184 +3,8 @@ CHAPTER 4: DATA STRUCTURES: OBJECTS AND ARRAYS
 Storing values in objects and arrays, understanding more complex data structures.
 */
 
-//Write a function range that takes two inputs (start, end) and returns an array containing all the numbers from start up to the end.
-
-function range(start, end) {
-    var rangeU = [];
-    for (var x = start; x < end; x++) {
-        rangeU.push(x);
-
-    }
-    return rangeU;
-}
-
-console.log(range(3, 19));
 /*
-ELOQUENT JAVASCRIPT
-Book exercises done fo' realz
-*/
-
-//CHAPTER 2: PROGRAM STRUCTURE
-
-//Looping a triangle:
-
-var main = '#';
-
-while (main.length <= 7) {
-    console.log(main);
-    main += '#';
-}
-
-console.log(" ");
-console.log(" ");
-
-for (var x = '#'; x.length <= 7; x += '#') {
-    console.log(x);
-}
-
-//FIZZBUZZ: Write a program that writes all number from 1 to 100
-//For numbers divisible by 3 print "Fizz" and for numbers divisible by 5 print "Fuzz"
-//For number divisible by both 3 and 5, print "FizzBuzz"
-
-for (var x = 1; x <= 100; x++) {
-    if ((x % 3 === 0) && (x % 5 === 0)) {
-        console.log("FizzBuzz");
-    } else if (x % 3 === 0) {
-        console.log("Fizz");
-    } else if (x % 5 === 0) {
-        console.log("Buzz");
-    } else {
-        console.log(x);
-    }
-
-}
-
-
-/*
-CHESSBOARD
-Write a program that creates a string that represents an 8x8 grid, using new-line characters to separate lines.
-At each position of the grid there is eithera space or a "#" character. The chacters should form a chess board.
-Passing this string to console.log should show the final result.
-When it works, define a variable that defines the width and height of the grid. var size = x.
-*/
-
-var size = 8;
-var numberSign = "#";
-var space = " ";
-var main = "";
-var lineBreak = '\r'
-
-//In a nested for loop inside another for loop, an instance of the loop triggers an instance of the other loop which runs as long as needed.
-//The trick is to think of a serialized matrix, that prints each dimension based on individual for loops >:)
-
-for (var y = 0; y < size; y++) {
-
-    for (var x = 0; x < size; x++) {
-
-        if ((x % 2 === 0) && (y % 2 === 0)) {
-            main += numberSign;
-            main += space;
-
-        } else if ((!(x % 2 === 0)) && (!(y % 2 === 0))) {
-            main += space;
-            main += numberSign;
-        }
-
-    }
-    main += lineBreak;
-}
-
-console.log(main);
-
-/* CHAPTER 3: Functions
-Understanding functions in JAVASCRIPT */
-
-//Write a function min, that recreates the javascript built-in function Math.min allowing one to find the smallest of two given numbers.
-
-function min(x, y) {
-    if (x < y) {
-        return x;
-    } else if (y < x) {
-        return y;
-    } else if (x == y) {
-        return "There is no minimum in this case";
-    }
-}
-
-console.log(min(76, 10));
-
-
-
-//Write a recursive function "isEven" that checks wheter a number is even
-//Check with 0 or 1, and if greater call the recursive function by substracting 2
-
-function isEven(number) {
-    if (number >= 0) {
-        if (number === 0) {
-            return true;
-        } else if (number === 1) {
-            return false
-        } else {
-            console.log(number);
-            return isEven(number - 2);
-        }
-    } else if (number < 0) {
-        if (number === 0) {
-            return true;
-        } else if (number === 1) {
-            return false
-        } else {
-            console.log(number);
-            return isEven(number + 2);
-        }
-    }
-}
-console.log(isEven(5))
-console.log(isEven(-200))
-
-
-//Write a function that sweeps through a string and returns how many of a give character there in the string.
-//string.charAt(N), is useful for this. It returns the character at the given position.
-
-
-
-var letterB = 0;
-var letter = 0;
-
-function countBs(string) {
-
-    for (var x = 0; x < (string.length - 1); x++) {
-        if (string.charAt(x) == "B") {
-            letterB++;
-        }
-    }
-
-    return "There are " + letterB + " in the given string";
-
-}
-
-console.log(countBs("BB BASE"));
-
-function countChar(string, character) {
-
-    for (var x = 0; x < (string.length - 1); x++) {
-        if (string.charAt(x) === character) {
-            letter++;
-        }
-    }
-
-    return "There are " + letter + " in the given string";
-
-}
-
-console.log(countChar("bibliothek", "o"));
-
-/*
-CHAPTER 4: DATA STRUCTURES: OBJECTS AND ARRAYS
-Storing values in objects and arrays, understanding more complex data structures.
-*/
-/*
-//1: SUM OF A RANGE
+4.1: SUM OF A RANGE
 Write a function range that takes two inputs (start, end) and returns an array containing all the numbers from start up to the end.*/
 
 function range(start, end) {
@@ -195,7 +19,7 @@ function range(start, end) {
 
 console.log(range(3, 19));
 
-//Write a sum function that takes an array of numbers and returns the sum of these numbers.
+//4.2 Write a sum function that takes an array of numbers and returns the sum of these numbers.
 
 function sum(array) {
     //Creates a variable that stores the sum value
@@ -312,7 +136,8 @@ var arrayValue = [12, 13, 14, 15, 16, 17];
 
 console.log(reverseArrayInPlace(arrayValue));
 
-/* 3: A LIST
+/*
+4.3: A LIST
 Write a function arrayToList that builds a List data sctructure from the array [1,2,3]
 Then Write a listToArray function that produces an array from a list.
 Also write the helper functions prepend, which takes an element and a list and creates a new list that adds
@@ -413,8 +238,9 @@ var numberCheck = 3;
 console.log(nth(listTest, numberCheck));
 
 /*
-4: DEEP COMPARISON
-Write a function deepEqual that takes two values and returns ture only if they are the same value or are objects with the same properties whose values are also equal when compared with a recursive call to deepEqual.
+4.4: DEEP COMPARISON
+Write a function deepEqual that takes two values and returns true only if they are the same value 
+or are objects with the same properties whose values are also equal when compared with a recursive call to deepEqual.
 */
 
 function deepEqual(value1, value2) {
