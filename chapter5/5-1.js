@@ -19,3 +19,4 @@ var set1 = [
 console.log(set1.reduce(function(sum, array) {
     return sum.concat(array);
 }));
+
